@@ -6,9 +6,6 @@ if (savedTheme === "light") {
   root.classList.add("light");
 }
 
-// Update year
-document.getElementById("year").textContent = new Date().getFullYear();
-
 // Mobile nav
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.getElementById("nav-menu");
@@ -69,17 +66,4 @@ async function loadProjects() {
   }
 }
 loadProjects();
-
-// Contact form demo (prevent real submit)
-const form = document.getElementById("contact-form");
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get("name");
-    alert(`Thanks, ${name}! This demo form doesn't send yet. Configure it in script.js.`);
-    form.reset();
-  });
-}
-
 
