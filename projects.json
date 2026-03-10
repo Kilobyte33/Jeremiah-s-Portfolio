@@ -1,22 +1,12 @@
 [
   {
-    "title": "Algorithm Visualizer",
-    "description": "Interactive demos for sorting and pathfinding algorithms.",
-    "tags": ["JavaScript", "DSA", "Visualization"],
-    "demo": "https://example.com/algovis",
-    "source": "https://github.com/yourusername/algorithm-visualizer"
-  },
-  {
-    "title": "RESTful API Boilerplate",
-    "description": "Production-ready Node.js API with auth, tests, and CI.",
-    "tags": ["Node.js", "Express", "PostgreSQL", "JWT"],
-    "source": "https://github.com/yourusername/node-api-starter"
-  },
-  {
-    "title": "ML Notebook: Image Classifier",
-    "description": "Training a CNN on a small dataset with clear, readable code.",
-    "tags": ["Python", "PyTorch", "ML"]
+    "title": "Kilobyte Webapp",
+    "description": "A comprehensive marketplace and e-commerce platform.",
+    "tags": [
+      "Web Development",
+      "Marketplace",
+      "E-commerce"
+    ],
+    "source": "https://github.com/yourusername/kilobyte"
   }
 ]
-
-
