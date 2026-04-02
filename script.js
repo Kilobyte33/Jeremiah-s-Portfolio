@@ -34,7 +34,7 @@ const projectsData = [
     "title": "Kilobyte Webapp",
     "description": "Kilobyte Webapp is a full-stack marketplace and e-commerce platform that allows users to buy and sell products online. The system includes features such as user authentication, product listings, shopping cart functionality, and product management for sellers.<br><br>The application was built to simulate a real-world online marketplace where vendors can manage their products and customers can browse, search, and purchase items efficiently.",
     "tags": ["Python", "Django", "HTML & CSS", "SQLite"],
-    "source": "https://github.com/yourusername/kilobyte"
+    "source": "https://github.com/Kilobyte33/Kilobyte-WebApp"
   }
 ];
 
