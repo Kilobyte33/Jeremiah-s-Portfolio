@@ -109,48 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // Typing effect
-  const typingElement = document.querySelector('.typing-text');
-  if (typingElement) {
-    const texts = ["A Software Developer", "A Problem Solver"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
 
-    function type() {
-      const currentText = texts[textIndex];
-      if (isDeleting) {
-        typingElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let typeSpeed = 100;
-      if (isDeleting) typeSpeed /= 2;
-
-      if (!isDeleting && charIndex === currentText.length) {
-        if (textIndex === texts.length - 1) {
-          // Stop here
-          document.querySelector('.cursor').style.animation = 'none';
-          document.querySelector('.cursor').style.opacity = '1';
-          return;
-        }
-        typeSpeed = 2000; // Pause at end
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500; // Pause before typing next
-      }
-
-      setTimeout(type, typeSpeed);
-    }
-    
-    setTimeout(() => {
-      type();
-    }, 1000);
-  }
 });
 

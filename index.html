@@ -44,18 +44,58 @@
     <section class="hero" aria-label="Hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>Hi, I'm <span style="background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Jeremiah Kubarwa.</span><br><span class="typing-text"></span><span class="cursor">&nbsp;</span></h1>
-          <p class="lead">Software Developer focused on Backend Systems, Web Applications, and AI-powered solutions.
-            Building scalable digital experiences.</p>
+          <h1>Hi, I'm <br><span class="gradient-text">Jeremiah Kubarwa</span></h1>
+          <p class="subtitle fade-in" style="font-size: 1.25rem; font-weight: 500; font-family: var(--font-display); margin-bottom: 12px;">Backend Developer building scalable web and Ai-powered systems.</p>
+          <p class="lead fade-in" style="font-size: 1rem; max-width: 90%;">I specialize in designing robust APIs, backend architectures, and data-driven applications using modern technologies like Django and Python. Focused on performance, scalability, and real-world impact.</p>
           <div class="hero-ctas">
-            <a class="btn primary fade-in" style="animation-delay: 0.2s" href="projects.html">View Projects</a>
-            <a class="btn fade-in" style="animation-delay: 0.4s" href="assets/resume.pdf"
-              download="Jeremiah-Kubarwa-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn primary fade-in" style="animation-delay: 0.2s" href="projects.html">View My Work</a>
+            <a class="btn fade-in" style="animation-delay: 0.3s" href="assets/resume.pdf" download="Jeremiah-Kubarwa-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn fade-in btn-outline" style="animation-delay: 0.4s; border: none; background: transparent; padding-left: 0;" href="contact.html">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Contact Me
+            </a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <!-- The image path was kept the same, but structural classes improved -->
+        <div class="hero-art fade-in" aria-hidden="true" style="animation-delay: 0.3s;">
           <img src="assets/profile.png" alt="Jeremiah Kubarwa" class="hero-photo" width="400" height="500" />
+        </div>
+      </div>
+    </section>
+
+    <section class="technologies" aria-label="Technologies">
+      <div class="container fade-in">
+        <div class="tech-header text-center">
+          <h2>Technologies I Work With</h2>
+          <p class="muted">A selection of languages, frameworks, and tools I use:</p>
+        </div>
+        
+        <div class="tech-grid">
+          <div class="card tech-card">
+            <h3 class="tech-title">Backend <span class="arrow">&gt;</span></h3>
+            <div class="tech-icons">
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django"><span class="tech-name">Django</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span class="tech-name">Python</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js"><span class="tech-name">Node.js</span></div>
+            </div>
+          </div>
+          
+          <div class="card tech-card">
+            <h3 class="tech-title">Frontend <span class="arrow">&gt;</span></h3>
+            <div class="tech-icons">
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML"><span class="tech-name">HTML</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS"><span class="tech-name">CSS</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS"><span class="tech-name">JS</span></div>
+            </div>
+          </div>
+          
+          <div class="card tech-card" style="grid-column: span 1;">
+            <h3 class="tech-title">Tools <span class="arrow">&gt;</span></h3>
+            <div class="tech-icons">
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"><span class="tech-name">Git</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" class="invert-dark"><span class="tech-name">GitHub</span></div>
+              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"><span class="tech-name">Docker</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
