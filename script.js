@@ -60,11 +60,11 @@ function loadProjects() {
     card.className = "card fade-in";
     card.innerHTML = `
       <h3>${p.title ?? "Untitled Project"}</h3>
-      <p class="muted">${p.description ?? ""}</p>
-      <div style="margin-top:10px; margin-bottom: auto; display:flex; gap:8px; flex-wrap:wrap;">
-        ${Array.isArray(p.tags) ? p.tags.map(t => `<span class="small muted" style="border:1px solid var(--border); padding:4px 10px; border-radius:999px; background: color-mix(in oklab, var(--bg) 50%, transparent);">${t}</span>`).join("") : ""}
+      <p class="muted" style="margin-bottom: 24px;">${p.description ?? ""}</p>
+      <div style="margin-top:auto; margin-bottom: 24px; display:flex; gap:8px; flex-wrap:wrap;">
+        ${Array.isArray(p.tags) ? p.tags.map(t => `<span class="small muted" style="border:1px solid var(--primary); padding:4px 12px; border-radius:999px; background: rgba(59, 130, 246, 0.1); color: var(--primary); font-weight: 600;">${t}</span>`).join("") : ""}
       </div>
-      <div style="margin-top:20px; display:flex; gap:10px;">
+      <div style="display:flex; gap:12px;">
         ${p.demo ? `<a class="btn primary" target="_blank" rel="noopener" href="${p.demo}">Live Demo</a>` : ""}
         ${p.source ? `<a class="btn" target="_blank" rel="noopener" href="${p.source}">Source Code</a>` : ""}
       </div>
@@ -108,5 +108,46 @@ document.addEventListener('DOMContentLoaded', () => {
     section.style.opacity = '0';
     observer.observe(section);
   });
+
+  // Typing effect
+  const typingElement = document.querySelector('.typing-text');
+  if (typingElement) {
+    const texts = ["Jeremiah Kubarwa", "a Software Developer", "a Problem Solver"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentText = texts[textIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = 100;
+      if (isDeleting) typeSpeed /= 2;
+
+      if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typeSpeed = 500; // Pause before typing next
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+    
+    // Start typing effect immediately if there's text to type, 
+    // but initially it's populated by HTML. Let's clear it and start.
+    setTimeout(() => {
+      typingElement.textContent = "";
+      type();
+    }, 1000);
+  }
 });
 
