@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Typing effect
   const typingElement = document.querySelector('.typing-text');
   if (typingElement) {
-    const texts = ["Jeremiah Kubarwa", "a Software Developer", "a Problem Solver"];
+    const texts = ["A Software Developer", "A Problem Solver"];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -131,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isDeleting) typeSpeed /= 2;
 
       if (!isDeleting && charIndex === currentText.length) {
+        if (textIndex === texts.length - 1) {
+          // Stop here
+          document.querySelector('.cursor').style.animation = 'none';
+          document.querySelector('.cursor').style.opacity = '1';
+          return;
+        }
         typeSpeed = 2000; // Pause at end
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
@@ -142,10 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(type, typeSpeed);
     }
     
-    // Start typing effect immediately if there's text to type, 
-    // but initially it's populated by HTML. Let's clear it and start.
     setTimeout(() => {
-      typingElement.textContent = "";
       type();
     }, 1000);
   }
