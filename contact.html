@@ -13,51 +13,114 @@
   <link rel="icon" href="assets/favicon.png" />
 </head>
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="dashboard-layout light">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="site-header fade-in" aria-label="Site header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-text">Jeremiah Kubarwa</span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="hamburger"></span>
-        </button>
-        <ul id="nav-menu" class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><button class="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="top-nav">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">&lt;/&gt;</span>
+      Portfolio
+    </a>
   </header>
 
-  <main id="main">
-    <section class="section alt">
-      <div class="container">
-        <h1>Contact</h1>
-        <div class="contact-grid">
-          <div class="card">
-            <h3>Elsewhere</h3>
-            <ul class="links">
-              <li><a href="https://github.com/Kilobyte33" target="_blank" rel="noopener">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/jeremiah-kubarwa-169940361/" target="_blank"
-                  rel="noopener">LinkedIn</a></li>
-              <li><a href="mailto:kbkubarwa@gmail.com">kbkubarwa@gmail.com</a></li>
-              <li><a href="https://wa.me/263773106615" target="_blank" rel="noopener">WhatsApp or call (0773106615)</a>
-              </li>
-            </ul>
+  <aside class="sidebar">
+
+    <ul class="sidebar-nav">
+      <li>
+        <a href="index.html">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          About
+        </a>
+      </li>
+      <li>
+        <a href="skills.html">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Skills
+        </a>
+      </li>
+      <li>
+        <a href="projects.html">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Projects
+        </a>
+      </li>
+      <li>
+        <a href="contact.html" class="active">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-stats">
+      <h4>Portfolio Stats</h4>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">☺</div>
+            <span>5.0 ★★★★☆</span>
           </div>
+          <span class="stat-percentage">100%</span>
+        </div>
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 100%"></div>
         </div>
       </div>
-    </section>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">=</div>
+            <span>8/10</span>
+          </div>
+          <span class="stat-percentage">8+</span>
+        </div>
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 80%"></div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">◷</div>
+            <span>2+ Years</span>
+          </div>
+        </div>
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 60%"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content" class="main-content">
+    <div class="top-header">
+      <h1>Contact</h1>
+      <div class="breadcrumbs">
+        Dashboard &gt; <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    
+    <div class="container fade-in">
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Elsewhere</h3>
+          <ul class="links">
+            <li><a href="https://github.com/Kilobyte33" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/jeremiah-kubarwa-169940361/" target="_blank"
+                rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:kbkubarwa@gmail.com">kbkubarwa@gmail.com</a></li>
+            <li><a href="https://wa.me/263773106615" target="_blank" rel="noopener">WhatsApp or call (0773106615)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="script.js"></script>

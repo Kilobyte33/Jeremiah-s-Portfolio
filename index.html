@@ -13,90 +13,183 @@
   <link rel="icon" href="assets/favicon.png" />
 </head>
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="dashboard-layout light">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="site-header fade-in" aria-label="Site header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-text">Jeremiah Kubarwa</span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="hamburger"></span>
-        </button>
-        <ul id="nav-menu" class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><button class="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="top-nav">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">&lt;/&gt;</span>
+      Portfolio
+    </a>
   </header>
 
-  <main id="main">
-    <section class="hero" aria-label="Hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>Hi, I'm <br><span class="gradient-text">Jeremiah Kubarwa</span></h1>
-          <p class="subtitle fade-in" style="font-size: 1.25rem; font-weight: 500; font-family: var(--font-display); margin-bottom: 12px;">I am a passionate software developer focused on creating solutions that make a real impact.</p>
-          <p class="lead fade-in" style="font-size: 1rem; max-width: 90%;">I enjoy solving complex problems, learning new technologies, and building applications that are efficient, scalable, and user-centered. Whether working on backend systems, web platforms, or data-driven projects, I aim to deliver high-quality and meaningful software.</p>
-          <div class="hero-ctas">
-            <a class="btn primary fade-in" style="animation-delay: 0.2s" href="projects.html">View My Work</a>
-            <a class="btn fade-in" style="animation-delay: 0.3s" href="assets/resume.pdf" download="Jeremiah-Kubarwa-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-            <a class="btn fade-in btn-outline" style="animation-delay: 0.4s; border: none; background: transparent; padding-left: 0;" href="contact.html">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              Contact Me
-            </a>
+  <aside class="sidebar">
+
+    <ul class="sidebar-nav">
+      <li>
+        <a href="index.html" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="skills.html">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Skills
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          Experience
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          Education
+        </a>
+      </li>
+      <li>
+        <a href="projects.html">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Projects
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Testimonials
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-stats">
+      <h4>Portfolio Stats</h4>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">☺</div>
+            <span>5.0 ★★★★☆</span>
           </div>
+          <span class="stat-percentage">100%</span>
         </div>
-        <div class="hero-art fade-in" aria-hidden="true" style="animation-delay: 0.3s;">
-          <img src="assets/profile.png" alt="Jeremiah Kubarwa" class="hero-photo" width="400" height="500" />
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 100%"></div>
         </div>
       </div>
-    </section>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">=</div>
+            <span>8/10</span>
+          </div>
+          <span class="stat-percentage">8+</span>
+        </div>
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 80%"></div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-header">
+          <div class="stat-icon-wrapper">
+            <div class="stat-icon">◷</div>
+            <span>2+ Years</span>
+          </div>
+        </div>
+        <div class="stat-bar">
+          <div class="stat-fill" style="width: 60%"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-    <section class="technologies" aria-label="Technologies">
-      <div class="container fade-in">
-        <div class="tech-header text-center">
-          <h2>Technologies I Work With</h2>
-          <p class="muted">A selection of languages, frameworks, and tools I use:</p>
+  <main id="main-content" class="main-content">
+    <div class="top-header">
+      <h1>My Portfolio</h1>
+      <div class="breadcrumbs">
+        Dashboard &gt; <a href="#">Overview</a>
+      </div>
+    </div>
+
+    <div class="profile-card fade-in">
+      <div class="profile-image-container">
+        <img src="assets/profile.png" alt="Jeremiah Kubarwa" class="profile-image" />
+        <div class="profile-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
         </div>
         
-        <div class="tech-grid">
-          <div class="card tech-card">
-            <h3 class="tech-title">Backend <span class="arrow">&gt;</span></h3>
-            <div class="tech-icons">
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django"><span class="tech-name">Django</span></div>
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span class="tech-name">Python</span></div>
-            </div>
+        <div class="profile-socials">
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+          <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="name-row">
+          <h2>Jeremiah Kubarwa</h2>
+          <span class="hire-badge">Available for hire</span>
+        </div>
+        
+        <div class="role-title">Full Stack Developer</div>
+        
+        <p class="bio">I am a passionate software developer focused on creating solutions that make a real impact. I enjoy solving complex problems, learning new technologies, and building applications that are efficient, scalable, and user-centered. Whether working on backend systems, web platforms, or data-driven projects, I aim to deliver high-quality and meaningful software.</p>
+        
+        <div class="skills-pills">
+          <span class="skill-pill">React.js</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Next.js</span>
+          <span class="skill-pill">MongoDB</span>
+          <span class="skill-pill">UI/UX</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Django</span>
+        </div>
+        
+        <div class="overview-stats">
+          <div class="overview-stat-card">
+            <div class="overview-stat-value">5.0</div>
+            <div class="stars">★★★★★</div>
           </div>
-          
-          <div class="card tech-card">
-            <h3 class="tech-title">Frontend <span class="arrow">&gt;</span></h3>
-            <div class="tech-icons">
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML"><span class="tech-name">HTML</span></div>
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS"><span class="tech-name">CSS</span></div>
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS"><span class="tech-name">JS</span></div>
-            </div>
+          <div class="overview-stat-card">
+            <div class="overview-stat-value">8+</div>
+            <div class="overview-stat-label">Projects Completed</div>
           </div>
-          
-          <div class="card tech-card" style="grid-column: span 1;">
-            <h3 class="tech-title">Tools <span class="arrow">&gt;</span></h3>
-            <div class="tech-icons">
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"><span class="tech-name">Git</span></div>
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" class="invert-dark"><span class="tech-name">GitHub</span></div>
-              <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"><span class="tech-name">Docker</span></div>
-            </div>
+          <div class="overview-stat-card">
+            <div class="overview-stat-value">2+</div>
+            <div class="overview-stat-label">Years of Experience</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="section-title fade-in" style="animation-delay: 0.2s">Portfolio Overview</div>
+    <div class="overview-grid fade-in" style="animation-delay: 0.3s">
+      <div class="overview-card">
+        <div class="overview-card-content">
+          <span>Current</span>
+        </div>
+        <!-- Using placeholder for images to match mockup -->
+        <div style="width: 100%; height: 200px; background: linear-gradient(to bottom right, #e0e7ff, #c7d2fe); display: flex; align-items: center; justify-content: center; color: #4338ca; font-weight: bold;">
+          Project Preview
+        </div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-content">
+          <span>Portfolio Stats</span>
+        </div>
+        <div style="width: 100%; height: 200px; background: linear-gradient(to bottom right, #e0e7ff, #c7d2fe); display: flex; align-items: center; justify-content: center; color: #4338ca; font-weight: bold;">
+          Stats Preview
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="script.js"></script>
