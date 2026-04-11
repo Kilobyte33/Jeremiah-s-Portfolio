@@ -671,6 +671,112 @@ p {
 .invert-dark { filter: invert(1); }
 .tech-name { font-weight: 500; font-size: 1rem; }
 
+/* About Page */
+.about-container {
+  display: flex;
+  gap: 64px;
+  margin-top: 16px;
+  align-items: flex-start;
+}
+
+.about-content {
+  flex: 1.1;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.about-lead {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.about-lead strong {
+  color: #2a5ab5;
+  font-weight: 600;
+}
+
+.about-sub {
+  font-size: 1.05rem;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  background-color: #2a5ab5;
+  border-radius: 50%;
+}
+
+.about-cta-box {
+  background: #e5efff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.about-cta-box p {
+  color: #334155;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.btn-contact-me {
+  display: inline-flex;
+  align-items: center;
+  background: #2a5ab5;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.btn-contact-me:hover {
+  background: #1d4ed8;
+}
+
+.about-image {
+  flex: 0.9;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
 .skills-grid-modern {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

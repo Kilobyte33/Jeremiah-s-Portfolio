@@ -31,12 +31,6 @@ if (themeButton) {
 // Projects data directly embedded
 const projectsData = [
   {
-    "title": "E-commerce Website",
-    "description": "Online store built with Django and Stripe.",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
-    "viewLink": "#"
-  },
-  {
     "title": "Kilobyte Webapp",
     "description": "A comprehensive marketplace and e-commerce platform.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
