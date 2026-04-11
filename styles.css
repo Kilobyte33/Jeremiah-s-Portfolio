@@ -671,26 +671,171 @@ p {
 .invert-dark { filter: invert(1); }
 .tech-name { font-weight: 500; font-size: 1rem; }
 
+.skills-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.skill-card-modern {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.skill-card-header {
+  background: #5b8def;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.skill-card-body {
+  padding: 24px 20px;
+  background: white;
+}
+
+.skill-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.skill-main-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.skill-pills-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skill-pill-sm {
+  background: #e6f0fa;
+  color: #2a5ab5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+.skill-django-box {
+  background: #092e20;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+}
+
 .gradient-text {
   background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.skills-grid, .projects-grid, .contact-grid {
-  display: grid;
-  gap: 16px;
-}
-.skills-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
 .projects-grid {
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .contact-grid {
   grid-template-columns: 1.2fr .8fr;
   align-items: start;
+}
+
+/* Horizontal Project Cards */
+.project-card-h {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: relative;
+  height: 160px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card-h:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.project-img-wrapper {
+  width: 40%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 95%);
+}
+
+.project-info {
+  width: 60%;
+  padding: 24px 32px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background: white; /* ensure right side is pure white */
+}
+
+.project-info h3 {
+  color: #1e293b;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-family: var(--font-sans);
+}
+
+.project-info p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.project-info .btn-view {
+  margin-top: auto;
+  align-self: flex-end;
+  background: #2a5ab5;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.project-info .btn-view:hover {
+  background: #1d4ed8;
 }
 
 .links {
