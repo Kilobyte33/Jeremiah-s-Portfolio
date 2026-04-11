@@ -1,34 +1,16 @@
 /* Base */
 :root {
-  --bg: #0B0F19;
-  --bg-alt: #131A2A;
-  --text: #ffffff;
-  --text-muted: #9CA3AF;
-  --primary: #4F46E5;
-  --primary-hover: #6366F1;
-  --accent: #E879F9;
-  --card: #111827;
-  --card-hover: #1F2937;
-  --border: rgba(255, 255, 255, 0.1);
-  --gradient: linear-gradient(90deg, #4F46E5, #9333EA, #E879F9);
-  --glass: rgba(11, 15, 25, 0.85);
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+  --text: #1e293b;
+  --text-muted: #475569;
+  --primary: #2a5ab5;
+  --primary-hover: #1d4ed8;
+  --card: #ffffff;
+  --card-hover: #f8fafc;
+  --border: #e2e8f0;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Outfit", system-ui, -apple-system, sans-serif;
-}
-
-:root.light {
-  --bg: #f8fafc;
-  --bg-alt: #ffffff;
-  --text: #0f172a;
-  --text-muted: #475569;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --accent: #7c3aed;
-  --card: rgba(255, 255, 255, 0.6);
-  --card-hover: rgba(255, 255, 255, 0.9);
-  --border: rgba(226, 232, 240, 0.8);
-  --gradient: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
-  --glass: rgba(248, 250, 252, 0.75);
 }
 
 * {
@@ -320,7 +302,7 @@ p {
   margin-top: 70px;
   flex: 1;
   min-height: calc(100vh - 70px);
-  background: #ffffff;
+  background: #ffffff !important;
   color: #1a202c;
   padding: 2rem 3rem;
 }
@@ -735,14 +717,14 @@ p {
 }
 
 .about-cta-box {
-  background: #e5efff;
+  background: #2a5ab5;
   border-radius: 12px;
   padding: 24px;
   margin-top: 32px;
 }
 
 .about-cta-box p {
-  color: #334155;
+  color: #ffffff;
   font-size: 0.95rem;
   margin-bottom: 16px;
   line-height: 1.5;
@@ -751,18 +733,18 @@ p {
 .btn-contact-me {
   display: inline-flex;
   align-items: center;
-  background: #2a5ab5;
-  color: white;
+  background: #ffffff;
+  color: #2a5ab5;
   padding: 10px 24px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   transition: background 0.2s;
 }
 
 .btn-contact-me:hover {
-  background: #1d4ed8;
+  background: #f1f5f9;
 }
 
 .about-image {
