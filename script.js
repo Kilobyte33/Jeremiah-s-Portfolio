@@ -90,6 +90,8 @@ function loadCertificates() {
   for (const c of certificatesData) {
     const card = document.createElement("article");
     card.className = "certificate-card fade-in";
+    card.style.cursor = "pointer";
+    card.onclick = () => openCertificateModal(c.image, c.title);
     
     card.innerHTML = `
       <div class="certificate-img-container">
@@ -102,10 +104,46 @@ function loadCertificates() {
           <span class="date">${c.date}</span>
         </div>
         <p>${c.description}</p>
+        <button class="btn-view-cert">View Certificate</button>
       </div>
     `;
     grid.appendChild(card);
   }
+}
+
+// Modal handling
+function openCertificateModal(imgSrc, title) {
+  let modal = document.getElementById("cert-modal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "cert-modal";
+    modal.className = "cert-modal";
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <img id="modal-img" src="" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.querySelector(".close-modal").onclick = () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    };
+  }
+
+  document.getElementById("modal-img").src = imgSrc;
+  document.getElementById("modal-title").innerText = title;
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 loadProjects();
