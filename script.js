@@ -44,7 +44,7 @@ const certificatesData = [
     "title": "AWS AI Practitioner Challenge",
     "issuer": "Udacity",
     "date": "April 25, 2026",
-    "image": "assets/certificates/aws-ai-practitioner.png",
+    "image": "assets/certificates/aws-ai-practitioner.jpg",
     "description": "Demonstrated exceptional proficiency and knowledge in AWS Cloud Fundamentals, AI and Machine Learning Concepts, AWS AI Services (SageMaker, Lex, Rekognition, Polly), security, and best practices."
   }
 ];
