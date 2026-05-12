@@ -69,7 +69,7 @@ async function loadProjects() {
     card.className = "project-card-h fade-in";
     
     card.innerHTML = `
-      <div class="project-img-wrapper" style="background-image: url('${image}')"></div>
+      <div class="project-img-wrapper" style="${image ? `background-image: url('${image}')` : ""}"></div>
       <div class="project-info">
         <h3>${title}</h3>
         <p>${description}</p>

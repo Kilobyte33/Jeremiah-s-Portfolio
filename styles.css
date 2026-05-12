@@ -402,6 +402,7 @@ p {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  object-position: center 25%;
   border-radius: 20px;
 }
 
@@ -930,6 +931,8 @@ p {
   position: relative;
   background-size: cover;
   background-position: center;
+  background-color: #e6f0fa;
+  background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(124, 58, 237, 0.14));
 }
 
 .project-img-wrapper::after {
@@ -937,6 +940,10 @@ p {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 95%);
+}
+
+:root.dark .project-img-wrapper::after {
+  background: linear-gradient(to right, rgba(15, 26, 46, 0) 45%, rgba(15, 26, 46, 1) 95%);
 }
 
 .project-info {
