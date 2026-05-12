@@ -11,6 +11,20 @@
   --border: #e2e8f0;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 55%, #7c3aed 100%);
+}
+
+/* Dark theme */
+:root.dark {
+  --bg: #0b1220;
+  --bg-alt: #0f1a2e;
+  --text: #e5e7eb;
+  --text-muted: #a3b0c2;
+  --card: #0f1a2e;
+  --card-hover: #12203a;
+  --border: rgba(148, 163, 184, 0.18);
+  --primary: #7aa2ff;
+  --primary-hover: #9bb8ff;
 }
 
 * {
@@ -150,12 +164,50 @@ p {
   left: 0;
   width: 100%;
   height: 70px;
-  background: white;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   padding: 0 32px;
   z-index: 1000;
+}
+
+.top-nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.icon-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
 }
 
 .logo {
@@ -303,7 +355,7 @@ p {
   flex: 1;
   min-height: calc(100vh - 70px);
   background: #ffffff !important;
-  color: #1a202c;
+  color: var(--text);
   padding: 2rem 3rem;
 }
 
@@ -332,7 +384,7 @@ p {
 .profile-card {
   display: flex;
   gap: 32px;
-  background: white;
+  background: var(--card);
   border-radius: 16px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -858,7 +910,7 @@ p {
 /* Horizontal Project Cards */
 .project-card-h {
   display: flex;
-  background: white;
+  background: var(--card);
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -894,7 +946,7 @@ p {
   flex-direction: column;
   position: relative;
   z-index: 2;
-  background: white; /* ensure right side is pure white */
+  background: var(--card); /* ensure right side matches theme */
 }
 
 .project-info h3 {
@@ -907,6 +959,47 @@ p {
 .project-info p {
   color: #64748b;
   font-size: 0.95rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+.tag-pill {
+  background: #eff6ff;
+  color: #2a5ab5;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(42, 90, 181, 0.15);
+}
+
+:root.dark .tag-pill {
+  background: rgba(122, 162, 255, 0.12);
+  color: #cfe0ff;
+  border-color: rgba(122, 162, 255, 0.25);
+}
+
+.project-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-view.secondary {
+  background: transparent;
+  color: #2a5ab5;
+  border: 1px solid rgba(42, 90, 181, 0.3);
+}
+
+:root.dark .btn-view.secondary {
+  color: #cfe0ff;
+  border-color: rgba(207, 224, 255, 0.3);
 }
 
 .project-info .btn-view {

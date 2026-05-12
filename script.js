@@ -1,42 +1,38 @@
 // Theme handling
 const THEME_KEY = "prefers-theme";
 const root = document.documentElement;
-const savedTheme = localStorage.getItem(THEME_KEY);
-if (savedTheme === "light") {
-  root.classList.add("light");
+
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  root.classList.toggle("dark", isDark);
 }
 
-// Mobile nav
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.getElementById("nav-menu");
-if (navToggle && navMenu) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = navMenu.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-}
+const savedTheme = localStorage.getItem(THEME_KEY);
+applyTheme(savedTheme === "dark" ? "dark" : "light");
 
 // Theme toggle
 const themeButton = document.querySelector(".theme-toggle");
 if (themeButton) {
   themeButton.addEventListener("click", () => {
-    const willBeLight = !root.classList.contains("light");
-    root.classList.toggle("light", willBeLight);
-    localStorage.setItem(THEME_KEY, willBeLight ? "light" : "dark");
-    themeButton.textContent = willBeLight ? "☀️" : "🌙";
+    const willBeDark = !root.classList.contains("dark");
+    applyTheme(willBeDark ? "dark" : "light");
+    localStorage.setItem(THEME_KEY, willBeDark ? "dark" : "light");
+    themeButton.textContent = willBeDark ? "🌙" : "☀️";
   });
-  themeButton.textContent = root.classList.contains("light") ? "☀️" : "🌙";
+  themeButton.textContent = root.classList.contains("dark") ? "🌙" : "☀️";
 }
 
-// Projects data directly embedded
-const projectsData = [
-  {
-    "title": "Kilobyte Webapp",
-    "description": "A comprehensive marketplace and e-commerce platform.",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
-    "viewLink": "https://github.com/Kilobyte33/Kilobyte-WebApp"
+// Projects
+async function getProjectsData() {
+  try {
+    const res = await fetch("projects.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error(`projects.json HTTP ${res.status}`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
   }
-];
+}
 
 // Certificates data
 const certificatesData = [
@@ -50,26 +46,45 @@ const certificatesData = [
 ];
 
 // Load projects
-function loadProjects() {
+async function loadProjects() {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
 
   grid.innerHTML = "";
+  const projectsData = await getProjectsData();
   if (projectsData.length === 0) {
     grid.innerHTML = '<p class="muted">No projects available.</p>';
     return;
   }
 
   for (const p of projectsData) {
+    const title = p.title || "Untitled project";
+    const description = p.description || "";
+    const image = p.image || "";
+    const tags = Array.isArray(p.tags) ? p.tags : [];
+    const demo = p.demo || p.live || "";
+    const source = p.source || p.github || p.viewLink || "";
+
     const card = document.createElement("article");
     card.className = "project-card-h fade-in";
     
     card.innerHTML = `
-      <div class="project-img-wrapper" style="background-image: url('${p.image || ''}')"></div>
+      <div class="project-img-wrapper" style="background-image: url('${image}')"></div>
       <div class="project-info">
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
-        <a class="btn-view" target="_blank" rel="noopener" href="${p.viewLink || '#'}">View Project</a>
+        <h3>${title}</h3>
+        <p>${description}</p>
+        ${
+          tags.length
+            ? `<div class="project-tags">${tags
+                .slice(0, 6)
+                .map((t) => `<span class="tag-pill">${t}</span>`)
+                .join("")}</div>`
+            : ""
+        }
+        <div class="project-actions">
+          ${demo ? `<a class="btn-view secondary" target="_blank" rel="noopener" href="${demo}">Live Demo</a>` : ""}
+          ${source ? `<a class="btn-view" target="_blank" rel="noopener" href="${source}">Source</a>` : ""}
+        </div>
       </div>
     `;
     grid.appendChild(card);

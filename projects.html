@@ -13,14 +13,19 @@
   <link rel="icon" href="assets/favicon.png" />
 </head>
 
-<body class="dashboard-layout light">
+<body class="dashboard-layout">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="top-nav">
-    <a class="logo" href="index.html">
-      <span class="logo-icon">&lt;/&gt;</span>
-      Portfolio
-    </a>
+    <div class="top-nav-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">&lt;/&gt;</span>
+        Portfolio
+      </a>
+      <div class="top-nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+      </div>
+    </div>
   </header>
 
   <aside class="sidebar">
@@ -45,7 +50,7 @@
         </a>
       </li>
       <li>
-        <a href="projects.html" class="active">
+        <a href="projects.html" class="active" aria-current="page">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
           Projects
         </a>
