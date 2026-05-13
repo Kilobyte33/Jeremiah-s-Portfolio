@@ -1,28 +1,38 @@
-// Theme handling
 const THEME_KEY = "prefers-theme";
 const root = document.documentElement;
+
+function setThemeButtonIcon(button, isDark) {
+  if (!button) return;
+
+  button.innerHTML = isDark
+    ? '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2"></path><path d="M12 21v2"></path><path d="M4.22 4.22l1.42 1.42"></path><path d="M18.36 18.36l1.42 1.42"></path><path d="M1 12h2"></path><path d="M21 12h2"></path><path d="M4.22 19.78l1.42-1.42"></path><path d="M18.36 5.64l1.42-1.42"></path></svg>'
+    : '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>';
+}
 
 function applyTheme(theme) {
   const isDark = theme === "dark";
   root.classList.toggle("dark", isDark);
+
+  if (themeButton) {
+    setThemeButtonIcon(themeButton, isDark);
+    const nextThemeLabel = isDark ? "Switch to light theme" : "Switch to dark theme";
+    themeButton.setAttribute("aria-label", nextThemeLabel);
+    themeButton.setAttribute("title", nextThemeLabel);
+  }
 }
 
+const themeButton = document.querySelector(".theme-toggle");
 const savedTheme = localStorage.getItem(THEME_KEY);
 applyTheme(savedTheme === "dark" ? "dark" : "light");
 
-// Theme toggle
-const themeButton = document.querySelector(".theme-toggle");
 if (themeButton) {
   themeButton.addEventListener("click", () => {
     const willBeDark = !root.classList.contains("dark");
     applyTheme(willBeDark ? "dark" : "light");
     localStorage.setItem(THEME_KEY, willBeDark ? "dark" : "light");
-    themeButton.textContent = willBeDark ? "🌙" : "☀️";
   });
-  themeButton.textContent = root.classList.contains("dark") ? "🌙" : "☀️";
 }
 
-// Projects
 async function getProjectsData() {
   try {
     const res = await fetch("projects.json", { cache: "no-cache" });
@@ -34,64 +44,101 @@ async function getProjectsData() {
   }
 }
 
-// Certificates data
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function buildProjectLink(url, label, className) {
+  if (!url) return "";
+
+  const escapedUrl = escapeHtml(url);
+  const escapedLabel = escapeHtml(label);
+  const isExternal = /^(https?:)?\/\//i.test(url);
+  const targetAttrs = isExternal ? ' target="_blank" rel="noopener"' : "";
+
+  return `<a class="${className}" href="${escapedUrl}"${targetAttrs}>${escapedLabel}</a>`;
+}
+
 const certificatesData = [
   {
-    "title": "AWS AI Practitioner Challenge",
-    "issuer": "Udacity",
-    "date": "April 25, 2026",
-    "image": "assets/certificates/aws-ai-practitioner.jpg",
-    "description": "Demonstrated exceptional proficiency and knowledge in AWS Cloud Fundamentals, AI and Machine Learning Concepts, AWS AI Services (SageMaker, Lex, Rekognition, Polly), security, and best practices."
+    title: "AWS AI Practitioner Challenge",
+    issuer: "Udacity",
+    date: "April 25, 2026",
+    image: "assets/certificates/aws-ai-practitioner.jpg",
+    description:
+      "Demonstrated strong knowledge of AWS cloud fundamentals, AI and machine learning concepts, core AWS AI services, security, and best practices."
   }
 ];
 
-// Load projects
 async function loadProjects() {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
 
   grid.innerHTML = "";
   const projectsData = await getProjectsData();
+
   if (projectsData.length === 0) {
     grid.innerHTML = '<p class="muted">No projects available.</p>';
     return;
   }
 
-  for (const p of projectsData) {
-    const title = p.title || "Untitled project";
-    const description = p.description || "";
-    const image = p.image || "";
-    const tags = Array.isArray(p.tags) ? p.tags : [];
-    const demo = p.demo || p.live || "";
-    const source = p.source || p.github || p.viewLink || "";
+  for (const project of projectsData) {
+    const title = project.title || "Untitled project";
+    const description = project.description || "";
+    const problem = project.problem || "";
+    const built = project.built || "";
+    const role = project.role || "";
+    const image = project.image || "";
+    const tags = Array.isArray(project.tags) ? project.tags : [];
+    const demo = project.demo || project.live || "";
+    const source = project.source || project.github || project.viewLink || "";
+    const article = document.createElement("article");
 
-    const card = document.createElement("article");
-    card.className = "project-card-h fade-in";
-    
-    card.innerHTML = `
-      <div class="project-img-wrapper" style="${image ? `background-image: url('${image}')` : ""}"></div>
+    if (project.id) {
+      article.id = project.id;
+    }
+
+    article.className = "project-card-h fade-in";
+    article.innerHTML = `
+      <div class="project-img-wrapper" style="${image ? `background-image: url('${escapeHtml(image)}')` : ""}"></div>
       <div class="project-info">
-        <h3>${title}</h3>
-        <p>${description}</p>
+        ${role ? `<div class="project-role">${escapeHtml(role)}</div>` : ""}
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(description)}</p>
+        ${problem ? `<p class="project-section-copy"><strong>Problem:</strong> ${escapeHtml(problem)}</p>` : ""}
+        ${built ? `<p class="project-section-copy"><strong>What I built:</strong> ${escapeHtml(built)}</p>` : ""}
         ${
           tags.length
             ? `<div class="project-tags">${tags
-                .slice(0, 6)
-                .map((t) => `<span class="tag-pill">${t}</span>`)
+                .slice(0, 7)
+                .map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`)
                 .join("")}</div>`
             : ""
         }
         <div class="project-actions">
-          ${demo ? `<a class="btn-view secondary" target="_blank" rel="noopener" href="${demo}">Live Demo</a>` : ""}
-          ${source ? `<a class="btn-view" target="_blank" rel="noopener" href="${source}">Source</a>` : ""}
+          ${buildProjectLink(demo, "Live Demo", "btn-view secondary")}
+          ${buildProjectLink(source, "Source", "btn-view")}
         </div>
       </div>
     `;
-    grid.appendChild(card);
+
+    grid.appendChild(article);
   }
 }
 
-// Load certificates
+function closeCertificateModal() {
+  const modal = document.getElementById("cert-modal");
+  if (!modal) return;
+
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
 function loadCertificates() {
   const grid = document.getElementById("certificates-grid");
   if (!grid) return;
@@ -102,103 +149,98 @@ function loadCertificates() {
     return;
   }
 
-  for (const c of certificatesData) {
+  for (const certificate of certificatesData) {
     const card = document.createElement("article");
     card.className = "certificate-card fade-in";
     card.style.cursor = "pointer";
-    card.onclick = () => openCertificateModal(c.image, c.title);
-    
+    card.addEventListener("click", () => openCertificateModal(certificate.image, certificate.title));
+
     card.innerHTML = `
       <div class="certificate-img-container">
-        <img src="${c.image}" alt="${c.title}" class="certificate-img">
+        <img src="${escapeHtml(certificate.image)}" alt="${escapeHtml(certificate.title)}" class="certificate-img">
       </div>
       <div class="certificate-info">
-        <h3>${c.title}</h3>
+        <h3>${escapeHtml(certificate.title)}</h3>
         <div class="certificate-meta">
-          <span class="issuer">${c.issuer}</span>
-          <span class="date">${c.date}</span>
+          <span class="issuer">${escapeHtml(certificate.issuer)}</span>
+          <span class="date">${escapeHtml(certificate.date)}</span>
         </div>
-        <p>${c.description}</p>
-        <button class="btn-view-cert">View Certificate</button>
+        <p>${escapeHtml(certificate.description)}</p>
+        <button class="btn-view-cert" type="button">View Certificate</button>
       </div>
     `;
+
     grid.appendChild(card);
   }
 }
 
-// Modal handling
 function openCertificateModal(imgSrc, title) {
   let modal = document.getElementById("cert-modal");
+
   if (!modal) {
     modal = document.createElement("div");
     modal.id = "cert-modal";
     modal.className = "cert-modal";
     modal.innerHTML = `
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <button class="close-modal" type="button" aria-label="Close certificate preview">&times;</button>
         <h2 id="modal-title"></h2>
         <img id="modal-img" src="" alt="">
       </div>
     `;
+
     document.body.appendChild(modal);
-
-    modal.querySelector(".close-modal").onclick = () => {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    };
-
-    window.onclick = (event) => {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
+    modal.querySelector(".close-modal").addEventListener("click", closeCertificateModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeCertificateModal();
       }
-    };
+    });
   }
 
   document.getElementById("modal-img").src = imgSrc;
-  document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal-img").alt = title;
+  document.getElementById("modal-title").textContent = title;
   modal.style.display = "flex";
   document.body.style.overflow = "hidden";
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeCertificateModal();
+  }
+});
+
 loadProjects();
 loadCertificates();
 
-// Scroll effects for header
 const handleScroll = () => {
-  if (window.scrollY > 20) {
-    document.documentElement.setAttribute('data-scroll', 'true');
-  } else {
-    document.documentElement.setAttribute('data-scroll', 'false');
-  }
+  document.documentElement.setAttribute("data-scroll", window.scrollY > 20 ? "true" : "false");
 };
-window.addEventListener('scroll', handleScroll, { passive: true });
+
+window.addEventListener("scroll", handleScroll, { passive: true });
 handleScroll();
 
-// Intersection Observer for scroll animations
 const observerOptions = {
   root: null,
-  rootMargin: '0px',
+  rootMargin: "0px",
   threshold: 0.1
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries, activeObserver) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('fade-in');
-      entry.target.style.opacity = '1';
-      observer.unobserve(entry.target);
+      entry.target.classList.add("fade-in");
+      entry.target.style.opacity = "1";
+      activeObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.section .container > *, .card');
-  sections.forEach(section => {
-    section.style.opacity = '0';
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".section .container > *, .card");
+  sections.forEach((section) => {
+    section.style.opacity = "0";
     observer.observe(section);
   });
-
-
 });
-

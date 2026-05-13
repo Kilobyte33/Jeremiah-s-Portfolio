@@ -1,14 +1,51 @@
 [
   {
-    "title": "Kilobyte Webapp",
-    "description": "A comprehensive marketplace and e-commerce platform.",
-    "tags": [
-      "Web Development",
-      "Marketplace",
-      "E-commerce"
-    ],
-    "image": "https://images.unsplash.com/photo-1557825835-70d97c4aa567?auto=format&fit=crop&w=1200&q=80",
-    "demo": "",
+    "id": "kilobyte-marketplace",
+    "title": "Kilobyte Marketplace Web App",
+    "description": "A comprehensive Django marketplace for posting, browsing, and managing local product listings.",
+    "problem": "Local buyers and sellers in my community lacked a reliable, centralized platform to list products and search by specific categories or cities, often relying on fragmented social media posts.",
+    "built": "I designed the entire backend using Django, including custom product models and category relationships. I implemented the media upload flow for product images, user authentication, and seller profile pages. I also built the search and filtering logic to improve product discoverability.",
+    "role": "Lead Full-stack Developer",
+    "tags": ["Python", "Django", "SQLite", "Bootstrap", "CRUD", "Media Processing"],
+    "image": "assets/projects/kilobyte-marketplace.png",
+    "demo": "https://kilobyte-marketplace.example.com",
     "source": "https://github.com/Kilobyte33/Kilobyte-WebApp"
+  },
+  {
+    "id": "kilobyte-notebook",
+    "title": "Kilobyte Notebook & Kibo AI",
+    "description": "A Django-powered note-taking workspace with an integrated AI assistant named Kibo.",
+    "problem": "Students need a way to organize notes efficiently and get instant help with concepts without switching tabs.",
+    "built": "I built the note-taking core and integrated 'Kibo', an AI Note Assistant that helps with markdown, folder organization, and general queries. The app features real-time chat, trash recovery, and a mobile-responsive interface.",
+    "role": "Full-stack Developer",
+    "tags": ["Python", "Django", "AI Assistant", "Markdown", "Mobile Responsive"],
+    "image": "assets/projects/kilobyte-notebook.png",
+    "demo": "https://e-book.onrender.com",
+    "source": "https://github.com/Kilobyte33/Kilobyte-note-book"
+  },
+  {
+    "id": "campus-news-app",
+    "title": "Campus News Mobile App",
+    "description": "A comprehensive mobile application for university news, academic headlines, and campus exploration.",
+    "problem": "Students struggle to find centralized information about orientation programmes, campus events, and academic updates, leading to missed opportunities.",
+    "built": "I developed the Flutter frontend featuring a dynamic Headlines feed (including NUST Orientation notices), an Explore menu with 8 categories (Academics, Sports, Clubs, Tech, etc.), and a robust Settings module for profile and notification management.",
+    "role": "Flutter Developer",
+    "tags": ["Flutter", "Dart", "Firebase", "Mobile UI", "NUST News", "Categories"],
+    "image": "assets/projects/campus-news.jpg",
+    "demo": "",
+    "source": "https://github.com/Kilobyte33/Campus-News-App"
+  },
+  {
+    "id": "portfolio-dashboard",
+    "title": "Professional Portfolio Dashboard",
+    "description": "A sleek, data-driven portfolio dashboard built to showcase professional skills and project evidence.",
+    "problem": "Generic portfolios lack the structured, dashboard-like feel that quickly communicates a developer's full range of capabilities to recruiters.",
+    "built": "I designed and built this custom dashboard using HTML, CSS, and JavaScript. It features a JSON-powered project system, theme switching, responsive layouts, and an accessible navigation structure designed for maximum clarity.",
+    "role": "Frontend Developer",
+    "tags": ["HTML", "CSS", "JavaScript", "Responsive Design", "UI/UX"],
+    "image": "assets/projects/portfolio-dashboard-pro.png",
+    "demo": "https://jeremiah-portfolio.example.com",
+    "source": "https://github.com/Kilobyte33/Jeremiah-s-Portfolio"
   }
 ]
+
