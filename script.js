@@ -66,6 +66,14 @@ function buildProjectLink(url, label, className) {
 
 const certificatesData = [
   {
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    date: "May 25, 2026",
+    image: "assets/certificates/cisco-cybersecurity.jpg",
+    description:
+      "Successfully completed the Introduction to Cybersecurity course, gaining foundational knowledge in cybersecurity threat detection, data protection, and network security concepts."
+  },
+  {
     title: "AWS AI Practitioner Challenge",
     issuer: "Udacity",
     date: "April 25, 2026",
@@ -149,7 +157,10 @@ function loadCertificates() {
     return;
   }
 
-  for (const certificate of certificatesData) {
+  const isMini = grid.classList.contains("mini");
+  const displayData = isMini ? certificatesData.slice(0, 1) : certificatesData;
+
+  for (const certificate of displayData) {
     const card = document.createElement("article");
     card.className = "certificate-card fade-in";
     card.style.cursor = "pointer";
