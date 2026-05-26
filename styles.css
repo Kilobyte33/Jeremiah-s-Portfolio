@@ -373,9 +373,11 @@ p {
   margin-top: 70px;
   flex: 1;
   min-height: calc(100vh - 70px);
-  background: #ffffff !important;
+  background: var(--bg);
   color: var(--text);
   padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Dashboard Overview */
@@ -530,8 +532,8 @@ p {
 
 .overview-stat-card {
   flex: 1;
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px;
   text-align: center;
@@ -540,7 +542,7 @@ p {
 .overview-stat-value {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #2a5ab5;
+  color: var(--primary);
   margin-bottom: 4px;
 }
 
@@ -552,7 +554,7 @@ p {
 
 .overview-stat-label {
   font-size: 0.8rem;
-  color: #718096;
+  color: var(--text-muted);
 }
 
 .section-title {
@@ -582,7 +584,8 @@ p {
 }
 
 .overview-card {
-  background: white;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
@@ -600,15 +603,17 @@ p {
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--card);
+  border: 1px solid var(--border);
   margin: 12px;
   border-radius: 8px;
   padding: 8px 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .overview-card-content span {
   font-size: 0.8rem;
-  color: #1a202c;
+  color: var(--text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -946,7 +951,9 @@ p {
 }
 
 .contact-grid {
+  display: grid;
   grid-template-columns: 1.2fr .8fr;
+  gap: 24px;
   align-items: start;
 }
 
@@ -959,7 +966,7 @@ p {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   position: relative;
-  height: 160px;
+  min-height: 180px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

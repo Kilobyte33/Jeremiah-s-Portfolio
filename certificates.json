@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Introduction to Cybersecurity",
+    "issuer": "Cisco Networking Academy",
+    "date": "May 25, 2026",
+    "image": "assets/certificates/cisco-cybersecurity.jpg",
+    "description": "Successfully completed the Introduction to Cybersecurity course, gaining foundational knowledge in cybersecurity threat detection, data protection, and network security concepts."
+  },
+  {
+    "title": "AWS AI Practitioner Challenge",
+    "issuer": "Udacity",
+    "date": "April 25, 2026",
+    "image": "assets/certificates/aws-ai-practitioner.jpg",
+    "description": "Demonstrated strong knowledge of AWS cloud fundamentals, AI and machine learning concepts, core AWS AI services, security, and best practices."
+  }
+]

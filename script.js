@@ -33,10 +33,39 @@ if (themeButton) {
   });
 }
 
+/* Intersection Observer for Fade-in Scroll Animations */
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, activeObserver) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+      entry.target.style.opacity = "1";
+      activeObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+/* Dynamic Data Loading */
 async function getProjectsData() {
   try {
     const res = await fetch("projects.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`projects.json HTTP ${res.status}`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+async function getCertificatesData() {
+  try {
+    const res = await fetch("certificates.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error(`certificates.json HTTP ${res.status}`);
     const data = await res.json();
     return Array.isArray(data) ? data : [];
   } catch {
@@ -63,25 +92,6 @@ function buildProjectLink(url, label, className) {
 
   return `<a class="${className}" href="${escapedUrl}"${targetAttrs}>${escapedLabel}</a>`;
 }
-
-const certificatesData = [
-  {
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco Networking Academy",
-    date: "May 25, 2026",
-    image: "assets/certificates/cisco-cybersecurity.jpg",
-    description:
-      "Successfully completed the Introduction to Cybersecurity course, gaining foundational knowledge in cybersecurity threat detection, data protection, and network security concepts."
-  },
-  {
-    title: "AWS AI Practitioner Challenge",
-    issuer: "Udacity",
-    date: "April 25, 2026",
-    image: "assets/certificates/aws-ai-practitioner.jpg",
-    description:
-      "Demonstrated strong knowledge of AWS cloud fundamentals, AI and machine learning concepts, core AWS AI services, security, and best practices."
-  }
-];
 
 async function loadProjects() {
   const grid = document.getElementById("projects-grid");
@@ -111,7 +121,8 @@ async function loadProjects() {
       article.id = project.id;
     }
 
-    article.className = "project-card-h fade-in";
+    article.className = "project-card-h";
+    article.style.opacity = "0";
     article.innerHTML = `
       <div class="project-img-wrapper" style="${image ? `background-image: url('${escapeHtml(image)}')` : ""}"></div>
       <div class="project-info">
@@ -136,6 +147,7 @@ async function loadProjects() {
     `;
 
     grid.appendChild(article);
+    observer.observe(article);
   }
 }
 
@@ -147,11 +159,13 @@ function closeCertificateModal() {
   document.body.style.overflow = "auto";
 }
 
-function loadCertificates() {
+async function loadCertificates() {
   const grid = document.getElementById("certificates-grid");
   if (!grid) return;
 
   grid.innerHTML = "";
+  const certificatesData = await getCertificatesData();
+
   if (certificatesData.length === 0) {
     grid.innerHTML = '<p class="muted">No certificates available.</p>';
     return;
@@ -162,7 +176,8 @@ function loadCertificates() {
 
   for (const certificate of displayData) {
     const card = document.createElement("article");
-    card.className = "certificate-card fade-in";
+    card.className = "certificate-card";
+    card.style.opacity = "0";
     card.style.cursor = "pointer";
     card.addEventListener("click", () => openCertificateModal(certificate.image, certificate.title));
 
@@ -182,6 +197,7 @@ function loadCertificates() {
     `;
 
     grid.appendChild(card);
+    observer.observe(card);
   }
 }
 
@@ -232,26 +248,12 @@ const handleScroll = () => {
 window.addEventListener("scroll", handleScroll, { passive: true });
 handleScroll();
 
-const observerOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, activeObserver) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("fade-in");
-      entry.target.style.opacity = "1";
-      activeObserver.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".section .container > *, .card");
-  sections.forEach((section) => {
-    section.style.opacity = "0";
-    observer.observe(section);
+  const staticElements = document.querySelectorAll(
+    ".profile-card, .skill-card-modern, .contact-card, .overview-stat-card, .overview-card, .about-cta-box, .about-image"
+  );
+  staticElements.forEach((el) => {
+    el.style.opacity = "0";
+    observer.observe(el);
   });
 });

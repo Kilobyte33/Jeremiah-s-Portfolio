@@ -8,8 +8,8 @@
     "role": "Lead Full-stack Developer",
     "tags": ["Python", "Django", "SQLite", "Bootstrap", "CRUD", "Media Processing"],
     "image": "assets/projects/kilobyte-marketplace.png",
-    "demo": "https://kilobyte-marketplace.example.com",
-    "source": "https://github.com/Kilobyte33/Kilobyte-WebApp"
+    "demo": "",
+    "source": "https://github.com/Kilobyte33"
   },
   {
     "id": "kilobyte-notebook",
@@ -33,7 +33,7 @@
     "tags": ["Flutter", "Dart", "Firebase", "Mobile UI", "NUST News", "Categories"],
     "image": "assets/projects/campus-news.jpg",
     "demo": "",
-    "source": "https://github.com/Kilobyte33/Campus-News-App"
+    "source": "https://github.com/Musawenkosi-Moyo/Campus-News"
   },
   {
     "id": "portfolio-dashboard",
@@ -44,8 +44,8 @@
     "role": "Frontend Developer",
     "tags": ["HTML", "CSS", "JavaScript", "Responsive Design", "UI/UX"],
     "image": "assets/projects/portfolio-dashboard-pro.png",
-    "demo": "https://jeremiah-portfolio.example.com",
-    "source": "https://github.com/Kilobyte33/Jeremiah-s-Portfolio"
+    "demo": "",
+    "source": "https://github.com/Kilobyte33"
   }
 ]
 
